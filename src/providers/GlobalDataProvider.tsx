@@ -1,19 +1,13 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
-
-type Note = {
-  id: number;
-  note: string;
-};
+import { Note, STATE_STORAGE_KEY } from "@/services/interfaces";
 
 type GlobalDataContextType = {
   notes: Note[];
   saveNote: (note: string) => void;
   deleteNote: (id: number) => void;
 };
-
-const STATE_STORAGE_KEY = "BrowserNotes";
 
 // 1. Create the context with a default value
 const GlobalDataContext = createContext<GlobalDataContextType>({
